@@ -17,6 +17,7 @@ public class InventoryService {
 
     @Transactional(readOnly = true)
     public List<InventoryResponse> isInStock(List<String> sku){
+//        Thread.sleep(10000);
         return inventoryRepository.findBySkuCodeIn(sku).stream()
                 .map(inventory ->
                     InventoryResponse.builder()
